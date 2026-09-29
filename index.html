@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Sleepover Countdown</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(circle at 15% 20%, #7c3aed 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, #06b6d4 0%, transparent 25%),
+    radial-gradient(circle at 50% 90%, #2563eb 0%, transparent 30%),
+    #050816;
+}
+
+/* Animated background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 45px 45px;
+  animation: gridMove 10s linear infinite;
+}
+
+@keyframes gridMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(45px); }
+}
+
+.container {
+  width: min(1100px, 94%);
+  margin: auto;
+  padding: 35px 0 60px;
+}
+
+.hero {
+  text-align: center;
+  padding: 35px 20px;
+  border-radius: 30px;
+  background: rgba(10, 15, 35, .75);
+  border: 2px solid rgba(255,255,255,.15);
+  box-shadow: 0 0 45px rgba(99,102,241,.35);
+  backdrop-filter: blur(12px);
+}
+
+.hero-icons {
+  font-size: 48px;
+  letter-spacing: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  font-size: clamp(38px, 7vw, 76px);
+  margin: 15px 0 5px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #8b5cf6;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #cbd5e1;
+}
+
+.date {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  font-size: 18px;
+}
+
+#countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 35px auto;
+  max-width: 850px;
+}
+
+.time-box {
+  padding: 22px 10px;
+  border-radius: 20px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 0 20px rgba(255,255,255,.03);
+}
+
+.number {
+  display: block;
+  font-size: clamp(35px, 6vw, 65px);
+  font-weight: 900;
+}
+
+.label {
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.celebration {
+  display: none;
+  position: relative;
+  min-height: 190px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(124,58,237,.45), rgba(6,182,212,.35));
+  border: 2px solid rgba(255,255,255,.25);
+  box-shadow: 0 0 35px rgba(34,211,238,.45);
+}
+
+.celebration.show {
+  display: flex;
+  animation: celebrationGlow 1.5s ease-in-out infinite alternate;
+}
+
+.celebration-message {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  font-size: clamp(28px, 5vw, 58px);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px #facc15;
+  animation: celebrationBounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes celebrationGlow {
+  from {
+    box-shadow: 0 0 20px rgba(34,211,238,.35);
+  }
+  to {
+    box-shadow: 0 0 55px rgba(250,204,21,.75);
+  }
+}
+
+@keyframes celebrationBounce {
+  from { transform: scale(1) rotate(-1deg); }
+  to { transform: scale(1.08) rotate(1deg); }
+}
+
+.confetti {
+  position: absolute;
+  top: -30px;
+  width: 12px;
+  height: 22px;
+  opacity: .9;
+  animation: confettiFall 3s linear infinite;
+}
+
+.confetti:nth-child(1) {
+  left: 8%;
+  background: #facc15;
+  animation-delay: 0s;
+}
+
+.confetti:nth-child(2) {
+  left: 20%;
+  background: #fb7185;
+  animation-delay: .7s;
+}
+
+.confetti:nth-child(3) {
+  left: 34%;
+  background: #4ade80;
+  animation-delay: 1.2s;
+}
+
+.confetti:nth-child(4) {
+  left: 50%;
+  background: #38bdf8;
+  animation-delay: .3s;
+}
+
+.confetti:nth-child(5) {
+  left: 66%;
+  background: #c084fc;
+  animation-delay: 1.5s;
+}
+
+.confetti:nth-child(6) {
+  left: 80%;
+  background: #fb923c;
+  animation-delay: .9s;
+}
+
+.confetti:nth-child(7) {
+  left: 92%;
+  background: #facc15;
+  animation-delay: 1.8s;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(240px) rotate(720deg);
+  }
+}
+
+.section-title {
+  text-align: center;
+  margin: 55px 0 20px;
+  font-size: 32px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  min-height: 180px;
+  padding: 25px;
+  border-radius: 25px;
+  background: rgba(15,23,42,.78);
+  border: 2px solid rgba(255,255,255,.12);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.card:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+}
+
+.card-icon {
+  font-size: 55px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+  font-size: 27px;
+}
+
+.card p {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* Special gaming cards */
+.roblox {
+  background:
+    linear-gradient(135deg, rgba(230,40,40,.3), rgba(20,20,30,.8));
+}
+
+.fortnite {
+  background:
+    linear-gradient(135deg, rgba(20,90,220,.4), rgba(70,20,150,.6));
+}
+
+.soccer {
+  background:
+    linear-gradient(135deg, rgba(20,150,80,.3), rgba(10,40,30,.8));
+}
+
+.cricket {
+  background:
+    linear-gradient(135deg, rgba(20,100,200,.35), rgba(10,30,70,.8));
+}
+
+.chess {
+  background:
+    linear-gradient(135deg, rgba(150,100,30,.3), rgba(30,25,15,.8));
+}
+
+.names {
+  text-align: center;
+  margin-top: 35px;
+  padding: 25px;
+  border-radius: 25px;
+  background: rgba(15,23,42,.75);
+}
+
+.names h2 {
+  margin-top: 0;
+}
+
+.name-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.name {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(139,92,246,.2);
+  border: 1px solid rgba(167,139,250,.4);
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 45px;
+  color: #94a3b8;
+}
+
+@media (max-width: 650px) {
+  #countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .games {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-icons {
+    font-size: 35px;
+    letter-spacing: 5px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <section class="hero">
+
+```
+<div class="hero-icons">
+  🎮 🧱 ⚽ 🏏 ♟️
+</div>
+
+<h1>Sleepover Countdown</h1>
+
+<div class="subtitle">
+  The Ultimate Gaming & Sports Night
+</div>
+
+<div class="date">
+  📅 October 8, 2026 • 🕡 6:30 PM
+</div>
+
+<div id="countdown">
+
+  <div class="time-box">
+    <span class="number" id="days">0</span>
+    <span class="label">Days</span>
+  </div>
+
+  <div class="time-box">
+    <span class="number" id="hours">0</span>
+    <span class="label">Hours</span>
+  </div>
+
+  <div class="time-box">
+    <span class="number" id="minutes">0</span>
+    <span class="label">Minutes</span>
+  </div>
+
+  <div class="time-box">
+    <span class="number" id="seconds">0</span>
+    <span class="label">Seconds</span>
+  </div>
+
+</div>
+
+<div id="celebration" class="celebration" aria-live="polite">
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+  <span class="confetti"></span>
+
+  <div class="celebration-message">
+    🎉 THE SLEEPOVER IS HERE! 🎉
+  </div>
+</div>
+```
+
+  </section>
+
+  <h2 class="section-title">🎮 What's Going Down?</h2>
+
+  <section class="games">
+
+```
+<div class="card roblox">
+  <div class="card-icon">🟥🎮</div>
+  <h3>ROBLOX</h3>
+  <p>Gaming sessions, challenges and multiplayer madness!</p>
+</div>
+
+<div class="card fortnite">
+  <div class="card-icon">⚡🎮</div>
+  <h3>FORTNITE</h3>
+  <p>Chapter 7 Season 4 — Override!</p>
+  <p>Break the rules. Change the game.</p>
+</div>
+
+<div class="card soccer">
+  <div class="card-icon">⚽</div>
+  <h3>SOCCER</h3>
+  <p>Backyard matches, challenges and penalty shootouts.</p>
+</div>
+
+<div class="card cricket">
+  <div class="card-icon">🏏</div>
+  <h3>CRICKET</h3>
+  <p>Batting, bowling and a little friendly competition.</p>
+</div>
+
+<div class="card chess">
+  <div class="card-icon">♟️</div>
+  <h3>CHESS</h3>
+  <p>Time to see who can become the sleepover chess champion!</p>
+</div>
+
+<div class="card">
+  <div class="card-icon">🍕🎬</div>
+  <h3>SLEEPOVER MODE</h3>
+  <p>Pizza • Movies • Snacks • Games • Late Night Fun</p>
+</div>
+```
+
+  </section>
+
+  <section class="names">
+
+```
+<h2>👑 SLEEPOVER CREW</h2>
+
+<div class="name-list">
+  <div class="name">Keshav S</div>
+  <div class="name">Keshav V</div>
+  <div class="name">Aarush</div>
+  <div class="name">Sreeyon</div>
+  <div class="name">Miku</div>
+  <div class="name">Arnav</div>
+</div>
+```
+
+  </section>
+
+  <div class="footer">
+    🎉 GET READY... THE COUNTDOWN IS ON! 🎉
+  </div>
+
+</div>
+
+<script>
+
+/* =========================================
+   SLEEPOVER DATE
+   October 8, 2026 at 6:30 PM
+   ========================================= */
+
+const sleepoverDate =
+  new Date("October 8, 2026 18:30:00").getTime();
+
+const countdownElement = document.getElementById("countdown");
+const celebrationElement = document.getElementById("celebration");
+const subtitleElement = document.querySelector(".subtitle");
+
+let eventHasStarted = false;
+let countdownTimer = null;
+
+
+function showCelebration() {
+  if (eventHasStarted) {
+    return;
+  }
+
+  eventHasStarted = true;
+
+  countdownElement.hidden = true;
+  celebrationElement.classList.add("show");
+  subtitleElement.textContent = "THE ULTIMATE NIGHT HAS BEGUN!";
+}
+
+
+function updateCountdown() {
+  if (eventHasStarted) {
+    return;
+  }
+
+  const now = Date.now();
+  const difference = sleepoverDate - now;
+
+  if (difference <= 0) {
+    showCelebration();
+
+    if (countdownTimer !== null) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+
+    return;
+  }
+
+  const days =
+    Math.floor(difference / (1000 * 60 * 60 * 24));
+
+  const hours =
+    Math.floor(
+      (difference % (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+
+  const minutes =
+    Math.floor(
+      (difference % (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+
+  const seconds =
+    Math.floor(
+      (difference % (1000 * 60)) /
+      1000
+    );
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+
+updateCountdown();
+
+countdownTimer = setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
