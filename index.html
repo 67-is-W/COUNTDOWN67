@@ -195,7 +195,7 @@ h1 {
   border: 2px solid rgba(255,255,255,.2);
 }
 
-/* CHECKLIST */
+/* BRING SECTION */
 
 .bring-section {
   margin-top: 55px;
@@ -208,11 +208,13 @@ h1 {
   overflow: hidden;
 }
 
+/* MAIN CHECKLIST */
+
 .bring-row {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 22px 25px;
+  padding: 20px 25px;
   border-bottom: 1px solid rgba(255,255,255,.1);
   font-size: 21px;
   font-weight: bold;
@@ -222,12 +224,73 @@ h1 {
   border-bottom: none;
 }
 
-.checkbox {
-  width: 25px;
-  height: 25px;
+/* REAL CLICKABLE CHECKBOX */
+
+.bring-row input[type="checkbox"] {
+  appearance: none;
+  width: 27px;
+  height: 27px;
   border: 3px solid white;
-  border-radius: 5px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
   flex-shrink: 0;
+  position: relative;
+}
+
+.bring-row input[type="checkbox"]:checked {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.bring-row input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  left: 3px;
+  top: -2px;
+}
+
+.bring-row label {
+  cursor: pointer;
+}
+
+/* DEVICES */
+
+.devices-section {
+  padding: 25px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.devices-title {
+  font-size: 25px;
+  margin: 0 0 18px;
+}
+
+.device-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.device-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.device-item input {
+  width: 21px;
+  height: 21px;
+  cursor: pointer;
+  accent-color: #8b5cf6;
 }
 
 /* JOYFUL ATTITUDE */
@@ -240,7 +303,6 @@ h1 {
   color: #facc15;
   text-shadow: 0 0 18px rgba(250,204,21,.7);
   background: rgba(250,204,21,.06);
-  border-bottom: none;
 }
 
 /* NAMES */
@@ -325,6 +387,10 @@ h1 {
   }
 
   .games {
+    grid-template-columns: 1fr;
+  }
+
+  .device-list {
     grid-template-columns: 1fr;
   }
 
@@ -481,7 +547,7 @@ h1 {
   </section>
 
 
-  <!-- CHECKLIST -->
+  <!-- WHAT WE SHOULD BRING -->
 
   <section class="bring-section">
 
@@ -491,25 +557,85 @@ h1 {
 
     <div class="bring-box">
 
+      <!-- MAIN CHECKLIST -->
+
       <div class="bring-row">
-        <div class="checkbox"></div>
-        <span>Snack and Drink Contribution</span>
+        <input type="checkbox" id="snacks">
+        <label for="snacks">Snack and Drink Contribution</label>
       </div>
 
       <div class="bring-row">
-        <div class="checkbox"></div>
-        <span>🛏️ Blanket and Pillow</span>
+        <input type="checkbox" id="blanket">
+        <label for="blanket">🛏️ Blanket and Pillow</label>
       </div>
 
       <div class="bring-row">
-        <div class="checkbox"></div>
-        <span>🧸 Stuffed Animal (optional)</span>
+        <input type="checkbox" id="stuffed">
+        <label for="stuffed">🧸 Stuffed Animal (optional)</label>
       </div>
 
       <div class="bring-row">
-        <div class="checkbox"></div>
-        <span>🔋 BRING ALL DEVICES CHARGED</span>
+        <input type="checkbox" id="charged">
+        <label for="charged">🔋 BRING ALL DEVICES CHARGED</label>
       </div>
+
+
+      <!-- DEVICES -->
+
+      <div class="devices-section">
+
+        <h3 class="devices-title">
+          📱 DEVICES
+        </h3>
+
+        <div class="device-list">
+
+          <label class="device-item">
+            <input type="checkbox">
+            Nintendo
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            iPad / Tablet
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            iPhone
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            Chargers
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            Headphones
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            Chromebook
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            Xbox Controller
+          </label>
+
+          <label class="device-item">
+            <input type="checkbox">
+            Keyboard & Mouse
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <!-- JOYFUL ATTITUDE -->
 
       <div class="bring-row joyful">
         😄 BRING A JOYFUL ATTITUDE
