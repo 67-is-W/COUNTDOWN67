@@ -184,7 +184,18 @@ h1 {
   background: linear-gradient(135deg, rgba(250,70,70,.35), rgba(70,20,20,.85));
 }
 
-/* BRING LIST */
+/* FORT PICTURE */
+
+.fort-image {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  border: 2px solid rgba(255,255,255,.2);
+}
+
+/* CHECKLIST */
 
 .bring-section {
   margin-top: 55px;
@@ -198,48 +209,38 @@ h1 {
 }
 
 .bring-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   padding: 22px 25px;
   border-bottom: 1px solid rgba(255,255,255,.1);
+  font-size: 21px;
+  font-weight: bold;
 }
 
 .bring-row:last-child {
   border-bottom: none;
 }
 
-.bring-row h3 {
-  margin: 0 0 12px;
-  font-size: 22px;
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border: 3px solid white;
+  border-radius: 5px;
+  flex-shrink: 0;
 }
 
-.checklist {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.check-item {
-  padding: 10px 14px;
-  background: rgba(255,255,255,.06);
-  border-radius: 12px;
-  color: #e2e8f0;
-}
-
-.special-row {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-}
+/* JOYFUL ATTITUDE */
 
 .joyful {
+  justify-content: center;
   text-align: center;
   padding: 35px 20px;
   font-size: clamp(28px, 5vw, 48px);
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
   color: #facc15;
   text-shadow: 0 0 18px rgba(250,204,21,.7);
   background: rgba(250,204,21,.06);
+  border-bottom: none;
 }
 
 /* NAMES */
@@ -318,6 +319,7 @@ h1 {
 }
 
 @media (max-width: 650px) {
+
   #countdown {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -326,13 +328,13 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .checklist {
-    grid-template-columns: 1fr;
-  }
-
   .hero-icons {
     font-size: 35px;
     letter-spacing: 5px;
+  }
+
+  .bring-row {
+    font-size: 18px;
   }
 }
 </style>
@@ -343,10 +345,11 @@ h1 {
 <div class="container">
 
   <!-- HERO -->
+
   <section class="hero">
 
     <div class="hero-icons">
-      🎮 🛏️ ⚽ 🏏 ♟️ 🍛
+      🎮 ⚽ 🏏 ♟️
     </div>
 
     <h1>Sleepover Countdown</h1>
@@ -432,27 +435,53 @@ h1 {
     </div>
 
     <div class="card fort">
-      <div class="card-icon">🛏️</div>
+
+      <div class="card-icon">
+        <img
+          src="fort.jpg"
+          alt="Blanket and pillow fort"
+          class="fort-image"
+        >
+      </div>
+
       <h3>BLANKET & PILLOW FORT</h3>
-      <p>Build the ultimate cozy fort for movies, games and hanging out!</p>
+
+      <p>
+        Build the ultimate cozy fort for movies,
+        games and hanging out!
+      </p>
+
     </div>
 
     <div class="card trashket">
+
       <div class="card-icon">🗑️🏀</div>
+
       <h3>TRASHKET BALL TOURNAMENT</h3>
-      <p>Who can make the most shots? Let the tournament begin!</p>
+
+      <p>
+        Who can make the most shots?
+        Let the tournament begin!
+      </p>
+
     </div>
 
     <div class="card">
-      <div class="card-icon">🍛</div>
+
+      <div class="card-icon">🎬</div>
+
       <h3>SLEEPOVER MODE</h3>
-      <p>Biryani • Movies • Snacks • Games • Late Night Fun</p>
+
+      <p>
+        Movies • Snacks • Games • Late Night Fun
+      </p>
+
     </div>
 
   </section>
 
 
-  <!-- WHAT TO BRING -->
+  <!-- CHECKLIST -->
 
   <section class="bring-section">
 
@@ -462,59 +491,26 @@ h1 {
 
     <div class="bring-box">
 
-      <!-- DEVICES -->
       <div class="bring-row">
-
-        <h3>📱 Devices</h3>
-
-        <div class="checklist">
-
-          <div class="check-item">☐ Nintendo</div>
-
-          <div class="check-item">☐ iPad / Tablet</div>
-
-          <div class="check-item">☐ iPhone</div>
-
-          <div class="check-item">☐ Chargers</div>
-
-          <div class="check-item">☐ Headphones</div>
-
-          <div class="check-item">☐ Chromebook</div>
-
-          <div class="check-item">☐ Xbox Controller</div>
-
-          <div class="check-item">☐ Keyboard & Mouse</div>
-
-        </div>
-
+        <div class="checkbox"></div>
+        <span>Snack and Drink Contribution</span>
       </div>
 
-
-      <!-- SNACKS -->
-      <div class="bring-row special-row">
-        🍿 Snack and Drink Contribution
+      <div class="bring-row">
+        <div class="checkbox"></div>
+        <span>🛏️ Blanket and Pillow</span>
       </div>
 
-
-      <!-- BLANKET -->
-      <div class="bring-row special-row">
-        🛏️ Blanket and Pillow
+      <div class="bring-row">
+        <div class="checkbox"></div>
+        <span>🧸 Stuffed Animal (optional)</span>
       </div>
 
-
-      <!-- STUFFED ANIMAL -->
-      <div class="bring-row special-row">
-        🧸 Stuffed Animal <span style="font-size:16px;">(optional)</span>
+      <div class="bring-row">
+        <div class="checkbox"></div>
+        <span>🔋 BRING ALL DEVICES CHARGED</span>
       </div>
 
-
-      <!-- CHARGED -->
-      <div class="bring-row special-row">
-        🔋 BRING ALL DEVICES CHARGED
-      </div>
-
-
-      <!-- JOYFUL ATTITUDE -->
       <div class="bring-row joyful">
         😄 BRING A JOYFUL ATTITUDE
       </div>
@@ -532,12 +528,12 @@ h1 {
 
     <div class="name-list">
 
-      <div class="name">KS</div>
-      <div class="name">KV</div>
-      <div class="name">AD</div>
-      <div class="name">SD</div>
+      <div class="name">Keshav S</div>
+      <div class="name">Keshav V</div>
+      <div class="name">Aarush</div>
+      <div class="name">Sreeyon</div>
       <div class="name">Miku</div>
-      <div class="name">AK99</div>
+      <div class="name">Arnav</div>
 
     </div>
 
@@ -568,7 +564,6 @@ const subtitleElement =
 let eventHasStarted = false;
 let countdownTimer = null;
 
-
 function showCelebration() {
 
   if (eventHasStarted) return;
@@ -582,7 +577,6 @@ function showCelebration() {
   subtitleElement.textContent =
     "THE ULTIMATE NIGHT HAS BEGUN!";
 }
-
 
 function updateCountdown() {
 
@@ -628,19 +622,11 @@ function updateCountdown() {
       / 1000
     );
 
-  document.getElementById("days").textContent =
-    days;
-
-  document.getElementById("hours").textContent =
-    hours;
-
-  document.getElementById("minutes").textContent =
-    minutes;
-
-  document.getElementById("seconds").textContent =
-    seconds;
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
 }
-
 
 updateCountdown();
 
