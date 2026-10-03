@@ -184,8 +184,6 @@ h1 {
   background: linear-gradient(135deg, rgba(250,70,70,.35), rgba(70,20,20,.85));
 }
 
-/* FORT PICTURE */
-
 .fort-image {
   width: 120px;
   height: 90px;
@@ -195,10 +193,58 @@ h1 {
   border: 2px solid rgba(255,255,255,.2);
 }
 
-/* BRING SECTION */
+
+/* SCHEDULE */
+
+.schedule-section {
+  margin-top: 60px;
+}
+
+.schedule-box {
+  background: rgba(15,23,42,.82);
+  border: 2px solid rgba(255,255,255,.12);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 25px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s;
+}
+
+.schedule-row:hover {
+  background: rgba(255,255,255,.05);
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-time {
+  font-weight: 900;
+  color: #a78bfa;
+  font-size: 18px;
+}
+
+.schedule-activity {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.schedule-emoji {
+  margin-right: 8px;
+}
+
+
+/* CHECKLIST */
 
 .bring-section {
-  margin-top: 55px;
+  margin-top: 60px;
 }
 
 .bring-box {
@@ -207,8 +253,6 @@ h1 {
   border-radius: 25px;
   overflow: hidden;
 }
-
-/* MAIN CHECKLIST */
 
 .bring-row {
   display: flex;
@@ -219,12 +263,6 @@ h1 {
   font-size: 21px;
   font-weight: bold;
 }
-
-.bring-row:last-child {
-  border-bottom: none;
-}
-
-/* REAL CLICKABLE CHECKBOX */
 
 .bring-row input[type="checkbox"] {
   appearance: none;
@@ -256,6 +294,7 @@ h1 {
 .bring-row label {
   cursor: pointer;
 }
+
 
 /* DEVICES */
 
@@ -293,6 +332,7 @@ h1 {
   accent-color: #8b5cf6;
 }
 
+
 /* JOYFUL ATTITUDE */
 
 .joyful {
@@ -303,7 +343,9 @@ h1 {
   color: #facc15;
   text-shadow: 0 0 18px rgba(250,204,21,.7);
   background: rgba(250,204,21,.06);
+  border-bottom: none;
 }
+
 
 /* NAMES */
 
@@ -339,6 +381,7 @@ h1 {
   margin-top: 45px;
   color: #94a3b8;
 }
+
 
 /* CELEBRATION */
 
@@ -380,6 +423,7 @@ h1 {
   }
 }
 
+
 @media (max-width: 650px) {
 
   #countdown {
@@ -388,6 +432,11 @@ h1 {
 
   .games {
     grid-template-columns: 1fr;
+  }
+
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
   }
 
   .device-list {
@@ -410,265 +459,389 @@ h1 {
 
 <div class="container">
 
-  <!-- HERO -->
 
-  <section class="hero">
+<!-- HERO -->
 
-    <div class="hero-icons">
-      🎮 ⚽ 🏏 ♟️
+<section class="hero">
+
+  <div class="hero-icons">
+    🎮 ⚽ 🏏 ♟️
+  </div>
+
+  <h1>Sleepover Countdown</h1>
+
+  <div class="subtitle">
+    The Ultimate Gaming & Sports Night
+  </div>
+
+  <div class="date">
+    📅 October 8, 2026 • 🕖 7:00 PM
+  </div>
+
+  <div id="countdown">
+
+    <div class="time-box">
+      <span class="number" id="days">0</span>
+      <span class="label">Days</span>
     </div>
 
-    <h1>Sleepover Countdown</h1>
-
-    <div class="subtitle">
-      The Ultimate Gaming & Sports Night
+    <div class="time-box">
+      <span class="number" id="hours">0</span>
+      <span class="label">Hours</span>
     </div>
 
-    <div class="date">
-      📅 October 8, 2026 • 🕡 6:30 PM
+    <div class="time-box">
+      <span class="number" id="minutes">0</span>
+      <span class="label">Minutes</span>
     </div>
 
-    <div id="countdown">
+    <div class="time-box">
+      <span class="number" id="seconds">0</span>
+      <span class="label">Seconds</span>
+    </div>
 
-      <div class="time-box">
-        <span class="number" id="days">0</span>
-        <span class="label">Days</span>
-      </div>
+  </div>
 
-      <div class="time-box">
-        <span class="number" id="hours">0</span>
-        <span class="label">Hours</span>
-      </div>
+  <div id="celebration" class="celebration">
 
-      <div class="time-box">
-        <span class="number" id="minutes">0</span>
-        <span class="label">Minutes</span>
-      </div>
+    <div class="celebration-message">
+      🎉 THE SLEEPOVER IS HERE! 🎉
+    </div>
 
-      <div class="time-box">
-        <span class="number" id="seconds">0</span>
-        <span class="label">Seconds</span>
-      </div>
+  </div>
+
+</section>
+
+
+<!-- ACTIVITIES -->
+
+<h2 class="section-title">
+  🎮 What's Going Down?
+</h2>
+
+<section class="games">
+
+  <div class="card roblox">
+    <div class="card-icon">🎮</div>
+    <h3>ROBLOX</h3>
+    <p>Gaming sessions, challenges and multiplayer madness!</p>
+  </div>
+
+  <div class="card fortnite">
+    <div class="card-icon">⚡</div>
+    <h3>FORTNITE</h3>
+    <p>Chapter 7 Season 4 — Override!</p>
+    <p>Break the rules. Change the game.</p>
+  </div>
+
+  <div class="card soccer">
+    <div class="card-icon">⚽</div>
+    <h3>SOCCER</h3>
+    <p>Mini World Cup 🏆</p>
+    <p>Winner wins the Ballon d'Or! 🥇⚽</p>
+  </div>
+
+  <div class="card cricket">
+    <div class="card-icon">🏏</div>
+    <h3>CRICKET</h3>
+  </div>
+
+  <div class="card chess">
+    <div class="card-icon">♟️</div>
+    <h3>CHESS</h3>
+    <p>Time to see who can become the sleepover chess champion!</p>
+  </div>
+
+  <div class="card fort">
+
+    <div class="card-icon">
+
+      <img
+        src="fort.jpg"
+        alt="Blanket and pillow fort"
+        class="fort-image"
+      >
 
     </div>
 
-    <div id="celebration" class="celebration">
-      <div class="celebration-message">
-        🎉 THE SLEEPOVER IS HERE! 🎉
-      </div>
-    </div>
+    <h3>BLANKET & PILLOW FORT</h3>
 
-  </section>
+    <p>
+      Build the ultimate cozy fort for movies,
+      games and hanging out!
+    </p>
+
+  </div>
+
+  <div class="card trashket">
+
+    <div class="card-icon">🗑️🏀</div>
+
+    <h3>TRASHKET BALL TOURNAMENT</h3>
+
+    <p>
+      Who can make the most shots?
+      Let the tournament begin!
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-icon">🎬</div>
+
+    <h3>SLEEPOVER MODE</h3>
+
+    <p>
+      Movies • Snacks • Games • Late Night Fun
+    </p>
+
+  </div>
+
+</section>
 
 
-  <!-- ACTIVITIES -->
+<!-- SCHEDULE -->
+
+<section class="schedule-section">
 
   <h2 class="section-title">
-    🎮 What's Going Down?
+    🗓️ SLEEPOVER SCHEDULE
   </h2>
 
-  <section class="games">
+  <div class="schedule-box">
 
-    <div class="card roblox">
-      <div class="card-icon">🎮</div>
-      <h3>ROBLOX</h3>
-      <p>Gaming sessions, challenges and multiplayer madness!</p>
+    <div class="schedule-row">
+      <div class="schedule-time">6:30–7:00</div>
+      <div class="schedule-activity">👋 Come</div>
     </div>
 
-    <div class="card fortnite">
-      <div class="card-icon">⚡</div>
-      <h3>FORTNITE</h3>
-      <p>Chapter 7 Season 4 — Override!</p>
-      <p>Break the rules. Change the game.</p>
+    <div class="schedule-row">
+      <div class="schedule-time">7:00–7:20</div>
+      <div class="schedule-activity">📺 Talk / YouTube</div>
     </div>
 
-    <div class="card soccer">
-      <div class="card-icon">⚽</div>
-      <h3>SOCCER</h3>
-      <p>Mini World Cup 🏆</p>
-      <p>Winner wins the Ballon d'Or! 🥇⚽</p>
+    <div class="schedule-row">
+      <div class="schedule-time">7:20–8:15</div>
+      <div class="schedule-activity">🍽️ Eat</div>
     </div>
 
-    <div class="card cricket">
-      <div class="card-icon">🏏</div>
-      <h3>CRICKET</h3>
+    <div class="schedule-row">
+      <div class="schedule-time">8:15–8:45</div>
+      <div class="schedule-activity">🏆 Sleepover Cup</div>
     </div>
 
-    <div class="card chess">
-      <div class="card-icon">♟️</div>
-      <h3>CHESS</h3>
-      <p>Time to see who can become the sleepover chess champion!</p>
+    <div class="schedule-row">
+      <div class="schedule-time">8:45–9:00</div>
+      <div class="schedule-activity">⏸️ Halftime</div>
     </div>
 
-    <div class="card fort">
-
-      <div class="card-icon">
-        <img
-          src="fort.jpg"
-          alt="Blanket and pillow fort"
-          class="fort-image"
-        >
-      </div>
-
-      <h3>BLANKET & PILLOW FORT</h3>
-
-      <p>
-        Build the ultimate cozy fort for movies,
-        games and hanging out!
-      </p>
-
+    <div class="schedule-row">
+      <div class="schedule-time">9:00–9:30</div>
+      <div class="schedule-activity">🏆 Sleepover Cup</div>
     </div>
 
-    <div class="card trashket">
-
-      <div class="card-icon">🗑️🏀</div>
-
-      <h3>TRASHKET BALL TOURNAMENT</h3>
-
-      <p>
-        Who can make the most shots?
-        Let the tournament begin!
-      </p>
-
+    <div class="schedule-row">
+      <div class="schedule-time">9:30–9:40</div>
+      <div class="schedule-activity">🎮 Roblox</div>
     </div>
 
-    <div class="card">
-
-      <div class="card-icon">🎬</div>
-
-      <h3>SLEEPOVER MODE</h3>
-
-      <p>
-        Movies • Snacks • Games • Late Night Fun
-      </p>
-
+    <div class="schedule-row">
+      <div class="schedule-time">9:40–10:15</div>
+      <div class="schedule-activity">🗑️🏀 Trashket Ball</div>
     </div>
 
-  </section>
-
-
-  <!-- WHAT WE SHOULD BRING -->
-
-  <section class="bring-section">
-
-    <h2 class="section-title">
-      🎒 WHAT WE SHOULD BRING
-    </h2>
-
-    <div class="bring-box">
-
-      <!-- MAIN CHECKLIST -->
-
-      <div class="bring-row">
-        <input type="checkbox" id="snacks">
-        <label for="snacks">Snack and Drink Contribution</label>
-      </div>
-
-      <div class="bring-row">
-        <input type="checkbox" id="blanket">
-        <label for="blanket">🛏️ Blanket and Pillow</label>
-      </div>
-
-      <div class="bring-row">
-        <input type="checkbox" id="stuffed">
-        <label for="stuffed">🧸 Stuffed Animal (optional)</label>
-      </div>
-
-      <div class="bring-row">
-        <input type="checkbox" id="charged">
-        <label for="charged">🔋 BRING ALL DEVICES CHARGED</label>
-      </div>
-
-
-      <!-- DEVICES -->
-
-      <div class="devices-section">
-
-        <h3 class="devices-title">
-          📱 DEVICES
-        </h3>
-
-        <div class="device-list">
-
-          <label class="device-item">
-            <input type="checkbox">
-            Nintendo
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            iPad / Tablet
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            iPhone
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            Chargers
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            Headphones
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            Chromebook
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            Xbox Controller
-          </label>
-
-          <label class="device-item">
-            <input type="checkbox">
-            Keyboard & Mouse
-          </label>
-
-        </div>
-
-      </div>
-
-
-      <!-- JOYFUL ATTITUDE -->
-
-      <div class="bring-row joyful">
-        😄 BRING A JOYFUL ATTITUDE
-      </div>
-
+    <div class="schedule-row">
+      <div class="schedule-time">10:15–2:00</div>
+      <div class="schedule-activity">🎬 Movie</div>
     </div>
 
-  </section>
-
-
-  <!-- CREW -->
-
-  <section class="names">
-
-    <h2>👑 SLEEPOVER CREW</h2>
-
-    <div class="name-list">
-
-      <div class="name">Keshav S</div>
-      <div class="name">Keshav V</div>
-      <div class="name">Aarush</div>
-      <div class="name">Sreeyon</div>
-      <div class="name">Miku</div>
-      <div class="name">Arnav</div>
-
+    <div class="schedule-row">
+      <div class="schedule-time">2:00–2:15</div>
+      <div class="schedule-activity">🏕️ Fort</div>
     </div>
 
-  </section>
+    <div class="schedule-row">
+      <div class="schedule-time">2:45–3:30</div>
+      <div class="schedule-activity">🎲 Board Games</div>
+    </div>
 
+    <div class="schedule-row">
+      <div class="schedule-time">3:30–3:50</div>
+      <div class="schedule-activity">❓ Truth or Dare</div>
+    </div>
 
-  <div class="footer">
-    🎉 GET READY... THE COUNTDOWN IS ON! 🎉
+    <div class="schedule-row">
+      <div class="schedule-time">3:50–4:30</div>
+      <div class="schedule-activity">🎮 Fortnite</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">4:30–5:00</div>
+      <div class="schedule-activity">🗺️ Go on Mini Side Quests</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">5:00–6:00</div>
+      <div class="schedule-activity">🎮 Roblox</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">6:00–7:00</div>
+      <div class="schedule-activity">📱 Anything on Electronics</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">7:00–8:00</div>
+      <div class="schedule-activity">📵 Hop Off Electronics</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">8:00–8:45</div>
+      <div class="schedule-activity">🌳 Go Outside</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">9:00–9:45</div>
+      <div class="schedule-activity">🥞 Breakfast</div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-time">9:30–...</div>
+      <div class="schedule-activity">🎮 Anything On/Off Electronics</div>
+    </div>
+
   </div>
+
+</section>
+
+
+<!-- WHAT WE SHOULD BRING -->
+
+<section class="bring-section">
+
+  <h2 class="section-title">
+    🎒 WHAT WE SHOULD BRING
+  </h2>
+
+  <div class="bring-box">
+
+    <div class="bring-row">
+      <input type="checkbox" id="snacks">
+      <label for="snacks">
+        Snack and Drink Contribution
+      </label>
+    </div>
+
+    <div class="bring-row">
+      <input type="checkbox" id="blanket">
+      <label for="blanket">
+        🛏️ Blanket and Pillow
+      </label>
+    </div>
+
+    <div class="bring-row">
+      <input type="checkbox" id="stuffed">
+      <label for="stuffed">
+        🧸 Stuffed Animal (optional)
+      </label>
+    </div>
+
+    <div class="bring-row">
+      <input type="checkbox" id="charged">
+      <label for="charged">
+        🔋 BRING ALL DEVICES CHARGED
+      </label>
+    </div>
+
+
+    <!-- DEVICES -->
+
+    <div class="devices-section">
+
+      <h3 class="devices-title">
+        📱 DEVICES
+      </h3>
+
+      <div class="device-list">
+
+        <label class="device-item">
+          <input type="checkbox">
+          Nintendo
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          iPad / Tablet
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          iPhone
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          Chargers
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          Headphones
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          Chromebook
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          Xbox Controller
+        </label>
+
+        <label class="device-item">
+          <input type="checkbox">
+          Keyboard & Mouse
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <div class="bring-row joyful">
+      😄 BRING A JOYFUL ATTITUDE
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CREW -->
+
+<section class="names">
+
+  <h2>👑 SLEEPOVER CREW</h2>
+
+  <div class="name-list">
+
+    <div class="name">Keshav S</div>
+    <div class="name">Keshav V</div>
+    <div class="name">Aarush</div>
+    <div class="name">Sreeyon</div>
+    <div class="name">Miku</div>
+    <div class="name">Arnav</div>
+
+  </div>
+
+</section>
+
+
+<div class="footer">
+  🎉 GET READY... THE COUNTDOWN IS ON! 🎉
+</div>
 
 </div>
 
@@ -676,7 +849,7 @@ h1 {
 <script>
 
 const sleepoverDate =
-  new Date("October 8, 2026 18:30:00").getTime();
+  new Date("October 8, 2026 19:00:00").getTime();
 
 const countdownElement =
   document.getElementById("countdown");
@@ -689,6 +862,7 @@ const subtitleElement =
 
 let eventHasStarted = false;
 let countdownTimer = null;
+
 
 function showCelebration() {
 
@@ -703,6 +877,7 @@ function showCelebration() {
   subtitleElement.textContent =
     "THE ULTIMATE NIGHT HAS BEGUN!";
 }
+
 
 function updateCountdown() {
 
@@ -753,6 +928,7 @@ function updateCountdown() {
   document.getElementById("minutes").textContent = minutes;
   document.getElementById("seconds").textContent = seconds;
 }
+
 
 updateCountdown();
 
